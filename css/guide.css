@@ -1,0 +1,36 @@
+
+/* 在 head 标签中添加样式 */
+#container {
+    padding-left: 200px; /* 为导航栏的宽度留出空间 */
+}
+.left-floating-nav {
+    background-color: #333;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px; /* 导航栏宽度 */
+    height: 100%;
+    z-index: 1000;
+    overflow-y: auto;
+}
+.left-floating-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.left-floating-nav li {
+    position: relative; /* 为子导航绝对定位做准备 */
+}
+.left-floating-nav li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    border-bottom: 1px solid #444;
+}
+.left-floating-nav li a:hover {
+    background-color: #444;
+}
+
+

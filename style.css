@@ -4,6 +4,7 @@
 }
 header{
     background-color: darkblue;
+    background-image: url(https://s.ecust.edu.cn/entry/upload/portal/2023-10-29/20231029112302645l.png);
     height:80px;
     width:100%;
 }
@@ -41,7 +42,7 @@ header li{
     align-items: center;
     justify-content:center;
     background-color: rgb(100, 100, 255);
-    background-image: url("images/华理校园.jpg");
+    background-image: url("https://s.ecust.edu.cn/entry/upload/portal/2023-10-29/20231029112856655E.jpeg");
     background-position: center;
     background-repeat: no-repeat;
 }

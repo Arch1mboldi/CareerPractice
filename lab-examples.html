@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>实验案例</title>
+		<link rel="stylesheet" type="text/css" href="css/exExamples.css"/>
+		<link rel="stylesheet" href="css/guide.css">
+		<script>
+			window.addEventListener('scroll', function() {
+  const button = document.getElementById('backToTopButton');
+  if (window.scrollY > 100) { // 当页面滚动超过100px时显示按钮
+    button.style.display = 'block';
+  } else {
+    button.style.display = 'none';
+  }
+});
+
+// 监听按钮点击事件
+document.getElementById('backToTopButton').addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' }); // 平滑滚动到顶部
+});
+		</script>
+	</head>
+	<body>
+		<div id="container">
+
+			<h1>实验案例</h1>
+			<nav class="left-floating-nav">
+			    <ul>
+			        <li><a href="index.html">首页</a></li>
+			        <li><a href="lab-examples.html">实验案例</a></li>
+			        <li><a href="useful-tools.html">实用工具</a></li>
+			        <li><a href="basic-concepts.html">基本概念</a></li>
+					<li><a href="discussion-board.html">讨论板</a></li>
+					<li><a href="#">返回顶部</a></li>
+
+			    </ul>
+
+			</nav>
+
+			<div id="nav">
+				<ul>
+					<li>
+						<a href="#ex1">ex1</a>
+					</li>
+					<li>
+						<a href="#ex2">ex2</a>
+					</li>
+					<li>
+						<a href="#ex3">ex3</a>
+					</li>
+					<li>
+						<a href="#ex4">ex4</a>
+					</li>
+					<li>
+						<a href="#ex5">ex5</a>
+					</li>
+					<li>
+						<a href="#ex6">ex6</a>
+					</li>
+					<li><a href="#ex7">ex7</a></li>
+					<li><a href="#ex8">ex8</a></li>
+					<li><a href="#ex9">ex9</a></li>
+					<li><a href="#ex10">ex10</a></li>
+					<li><a href="#ex11">ex11</a></li>
+					<li><a href="#ex12">ex12</a></li>
+				</ul>
+			</div>
+
+			<div class="margin" id="userinfo">
+				<div id="ex1"><h2>实验1：输出"Hello, World!"</h2>
+					<p>
+					  对于大部分编程语言来说，编写一个能够输出 "Hello, World!" 的程序往往是最基本、最简单的。因此，这个程序常常作为一个初学者接触一门新的编程语言所写的第一个程序，也经常用来测试开发、编译环境是否能够正常工作。
+					</p>
+					<h3>输入格式</h3>
+					<p>无</p>
+					<h3>输出格式</h3>
+					<p>一行，仅包含一个字符串：</p>
+		<pre><code class="code">
+Hello, World!
+		</code></pre>
+		<h3>我的答案：</h3>
+		<pre><code class="code">
+#include &lt;stdio.h&gt;
+int main() {
+printf("Hello, World!");
+return 0;
+}
+			</code></pre>
+			</div>
+
+
+<br>
+<hr>
+<br>
+			<div id="ex2">
+				<h2>实验2：十进制到八进制</h2>
+				<p>把一个十进制正整数转化成八进制。</p>
+				<h3>输入格式</h3>
+				<p>一行，仅含一个十进制表示的整数a（0&lt;a&lt;65536）。</p>
+				<h3>输出格式</h3>
+				<p>一行，a的八进制表示。</p>
+				<h3>方法1：直接按八进制输出</h3>
+				<pre><code class="code">
+#include &lt;stdio.h&gt;
+int main( ){
+	int a;
+	scanf("%d", &a);
+	printf("%o", a);  // 注意：这里使用 %o 作为八进制的格式化输出
+	return 0;
+}
+	</code></pre>
+	<h3>方法2：短除法加倒取余数实现</h3>
+	<p>我们可以使用短除法加倒取余数实现。</p>
+	<pre><code class="code">
+#include &lt;stdio.h&gt;
+
+void decToOct(int n) {
+	// 存储八进制数的数组
+	int octalNum[100];
+	int i = 0;  // 数组索引
+	// 通过短除法计算八进制数
+	while (n > 0) {
+		octalNum[i] = n % 8;  // 存储余数
+		n = n / 8;  // 更新被除数
+		i++;  // 移动到数组的下一个位置
+	}
+	// 打印八进制数
+	printf("八进制数为: ");
+	for (int j = i - 1; j >= 0; j--) {
+		printf("%d", octalNum[j]);
+	}
+	printf("\n");
+}
+
+int main() {
+	int decimalNum;
+	printf("请输入一个十进制正整数: ");
+	scanf("%d", &decimalNum);
+	decToOct(decimalNum);
+	return 0;
+} 
+				</code></pre>
+				<p>在这个程序中，<code>decToOct</code> 函数负责将十进制数转换为八进制数。它通过不断地将数除以8并取余数来实现。余数被存储在一个数组中。最后，程序通过反向遍历这个数组来打印出八进制数。用户可以在 <code>main</code> 函数中输入一个十进制正整数，程序将输出对应的八进制数。</p>
+			
+			</div>
+<br>
+<hr>
+<br>
+			
+<div id="ex3">
+	<h2>实验3：乘法竖式运算程序</h2>
+	<p>编制一个乘法运算的程序，从键盘读入2个100以内的正整数，进行乘法运算并以竖式输出。</p>
+	
+	<h3>输入格式</h3>
+	<p>一行用空格隔开的两个100以内的正整数。</p>
+	
+	<h4>输入样例1：</h4>
+	<pre><code class="code">
+5 2
+	</code></pre>
+	
+	<h4>输出样例1：</h4>
+	<pre><code class="code">
+   5
+*  2
+----
+  10
+	</code></pre>
+	
+	<h4>输入样例2：</h4>
+	<pre><code class="code">
+89 45
+	</code></pre>
+	
+	<h4>输出样例2：</h4>
+	<pre><code class="code">
+  89
+* 45
+ 445
+356
+4005
+	</code></pre>
+	
+	<h3>我的答案：</h3>
+	<pre><code class="code">
+#include&lt;stdio.h&gt;
+int main()
+{
+	int a, b;
+	scanf("%d%d", &a, &b);
+	printf("%4d\n", a);
+	printf("*%3d\n", b);
+	printf("----\n");
+	// 这里代码需要修正以正确处理乘法运算
+	if (b < 10) {
+		printf("%4d\n", a * b);
+	} else {
+		// 以下代码仅处理了乘法运算的特殊情况，需要修正以支持所有情况
+		printf("%4d\n", a * (b % 10));
+		// 这里缺少了对b/10的乘法运算和累加
+		printf("----\n");
+		printf("%4d\n", a * b);
+	}
+	
+	return 0;
+}
+	</code></pre>
+	<p>注意：提供的C语言代码需要修正以正确处理所有情况的乘法运算。</p>
+  </div>
+  <br>
+  <hr>
+  <br>
+
+				
+  <div id="ex4">
+	<h2>实验4：两位正整数的简单算术运算</h2>
+	<p>算术运算为：+（加法），-（减法），*（乘法），/（整除），%（取余）。</p>
+	
+	<h3>输入格式</h3>
+	<p>一行算术表达式。</p>
+	
+	<h3>输出格式</h3>
+	<p>整型算数运算的结果（结果值不一定为22位数，可能多于22位或少于22位）。</p>
+	
+	<h4>输入样例</h4>
+	<pre><code class="code">
+32+64
+	</code></pre>
+	
+	<h4>输出样例</h4>
+	<pre><code class="code">
+96
+	</code></pre>
+	
+	<h3>我的答案：</h3>
+	<pre><code class="code">
+#include&ltstdio.h&gt
+int main(){
+  int x,y;
+  char c;
+  scanf("%d %c %d",&x,&c,&y);
+  if(c =='+')
+  printf("%d",x+y);
+  if(c =='-')
+  printf("%d",x-y);
+  if(c =='*')
+  printf("%d",x*y);
+  if(c =='/')
+  printf("%d",x/y);
+  if(c =='%')
+  printf("%d",x%y);
+
+  return 0;
+}
+	</code></pre>
+  </div>
+
+				
+				<div id="ex5">
+					<h2>实验5：简单计算器</h2>
+      <p>一个最简单的计算器，支持 +,-,*,/ 四种运算。</p>
+      
+      <h3>输入格式</h3>
+      <p>输入只有一行，共有三个参数，其中第 1,2 个参数为整数，第 3 个参数为操作符（+,-,*,/）。</p>
+      
+      <h3>输出格式</h3>
+      <p>输出只有一行，一个整数，为运算结果。</p>
+      <p>如果出现除数为 0 的情况，则输出：Divided by zero!。</p>
+      <p>如果出现无效的操作符，则输出：Invalid operator!。</p>
+      
+      <h4>输入输出样例1</h4>
+      <div>
+        <p>输入样例:</p>
+        <pre><code class="code">
+  1 2 +
+        </code></pre>
+        <p>输出样例:</p>
+        <pre><code class="code">
+  3
+        </code></pre>
+      </div>
+      
+      <h4>我的答案：</h4>
+      <pre><code class="code">
+#include&lt;stdio.h&gt;
+
+int main(){
+	char op;
+	int a, b;
+	scanf("%d %d %c", &a, &b, &op);
+
+	switch(op) {
+	case '+':
+		printf("%d\n", a + b);
+		break;
+	case '-':
+		printf("%d",a-b);
+	case '*':
+		printf("%d",a*b);
+	case '/':
+		if(b==0)
+			printf("Divided by zero");
+		else
+			printf("%d",a/b);
+			break;
+	default:
+		printf("Invalid operator!\n");
+		break;
+	}
+	return 0;
+}
+      </code></pre>
+				</div>
+
+					<br>
+					<hr>
+					<br>
+
+				<div id="ex6">
+					<h2>实验6：车厢重组</h2>
+      <p>在一个旧式的火车站旁边有一座桥...</p>
+      <!-- 题目描述 -->
+      <h3>输入格式</h3>
+      <p>共两行。第一行是车厢总数 (≤10000)N(≤10000)。第二行是 N 个不同的数表示初始的车厢顺序。</p>
+      <h3>输出格式</h3>
+      <p>一个整数，最少的旋转次数。</p>
+      <!-- 输入输出样例 -->
+      <h3>输入输出样例</h3>
+      <div>
+        <p>输入样例:</p>
+        <pre><code class="code">
+  4
+  4 3 2 1
+        </code></pre>
+        <p>输出样例:</p>
+        <pre><code class="code">
+  7
+        </code></pre>
+      </div>
+      <!-- 我的答案 -->
+      <h3>我的答案：</h3>
+      <pre><code class="code">
+#include&ltstdio.h&gt
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	int a[n+1],ans;
+	ans=0;
+	for(int i=1;i&lt=n;i++)
+	scanf("%d",&a[i]);
+	for(int i=1;i&lt=n;i++)
+	for(int j=1;j&lt=i;j++)
+		if(a[i]&lta[j])
+		ans++;
+	printf("%d",ans);
+return 0.
+}
+      </code></pre>
+</div>
+<br>
+<hr>
+<br>
+				<div id="ex7">
+					<h2>实验7：水仙花数</h2>
+      <p>春天是鲜花的季节，水仙花就是其中最迷人的代表，数学上有个水仙花数，它是指一个三位数，它的各位数字的立方和等于其本身，例如：153 = 1^3 + 5^3 + 3^3。</p>
+      
+      <h3>输入格式</h3>
+      <p>输入数据有多组，每组占一行，包括两个整数 m 和 n（100 <= m <= n <= 999）。</p>
+      
+      <h3>输出格式</h3>
+      <p>对于每个测试实例，要求输出所有在给定范围内的水仙花数。如果有多个，则要求从小到大排列在一行内输出，之间用一个空格隔开；如果给定的范围内不存在水仙花数，则输出 'no'；每个测试实例的输出占一行。</p>
+      
+      <h3>输入样例</h3>
+      <pre><code class="code">
+  100 120
+  300 380
+      </code></pre>
+      
+      <h3>输出样例</h3>
+      <pre><code class="code">
+  no
+  370 371
+      </code></pre>
+      
+      <h3>我的题解</h3>
+      <p>题解思路：这个题目可以通过遍历给定范围内的所有三位数，检查每个数是否是水仙花数，即它的各位数字立方和是否等于其本身。</p>
+      
+      <h3>C 语言代码实现</h3>
+      <pre><code class="code">
+#include &ltstdio.h&gt
+#include &ltmath.h&gt
+int main() {
+	int m, n;
+	int x = 0;
+	while(scanf("%d %d", &m, &n) != EOF){
+		for(m; m <= n; m++){
+			if(m == pow((m / 100), 3) + pow((m % 100 / 10), 3) + pow((m % 10), 3)){
+				x++;
+				if(x == 1){
+					printf("%d", m);
+				}
+				else{
+					printf(" %d", m);
+				}
+			}
+		}
+		if(x == 0){
+			printf("no");
+		}
+		printf("\n");
+		x = 0;
+	}
+	return -1;
+}
+      </code></pre>
+				</div>
+				<br>
+<hr>
+<br>
+				<div id="ex8">
+					<h2>实验8：素数判定</h2>
+					<p>对于表达式 n^2 + n + 41，当 n 在 (x, y) 范围内取整数值时（包括 x, y）(-39 <= x < y <= 50)，判定该表达式的值是否都为素数。</p>
+				
+					<h3>输入格式</h3>
+					<p>输入数据有多组，每组占一行，由两个整数 x，y 组成，当 x = 0, y = 0 时，表示输入结束，该行不做处理。</p>
+				
+					<h3>输出格式</h3>
+					<p>对于每个给定范围内的取值，如果表达式的值都为素数，则输出 "OK"，否则请输出 “Sorry”，每组输出占一行。</p>
+				
+					<h3>Sample Input</h3>
+					<pre><code class="code">
+				0 1
+				0 0
+					</code></pre>
+				
+					<h3>Sample Output</h3>
+					<pre><code class="code">
+				OK
+					</code></pre>
+				
+					<h3>问题分析：</h3>
+					<p>判定一个数是否为素数有各种各样的方法。这里采用比较简单的试除法来实现，并且将判断一个数是否为素数的功能封装到一个函数中。</p>
+				
+					<h3>C语言代码实现</h3>
+					<pre><code class="code">
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+#define fun(n) ((n) * (n) + (n) + 41)
+/* 试除法判断一个整数是否为素数 */
+int isnotprime(int n)
+{
+	if (n % 2 == 0) return 1;
+	int end = sqrt(n), i;
+	for (i = 3; i <= end; i += 2)
+		if (n % i == 0) break;
+	return i > end ? 0 : 1;
+}
+int main(void)
+{
+	int x, y, i;
+	while (scanf("%d %d", &x, &y) != EOF) {
+		if (x == 0 &amp;&amp; y == 0) break;
+		for (i = x; i <= y; i++)
+			if (isnotprime(fun(i))) break;
+		printf(i > y ? "OK\n" : "Sorry\n");
+	}
+	return 0;
+}
+					</code></pre>
+				</div>
+				<br>
+<hr>
+<br>
+				<div id="ex9">
+					<h2>实验9：查找最大元素</h2>
+					<p>对于输入的每个字符串，查找其中的最大字母，在该字母后面插入字符串“(max)”。</p>
+				
+					<h3>输入格式</h3>
+					<p>输入数据包括多个测试实例，每个实例由一行长度不超过100的字符串组成，字符串仅由大小写字母构成。</p>
+				
+					<h3>输出格式</h3>
+					<p>对于每个测试实例输出一行字符串，输出的结果是插入字符串“(max)”后的结果。如果存在多个最大的字母，就在每一个最大字母后面都插入"(max)"。</p>
+				
+					<h3>Sample Input</h3>
+					<pre><code class="code">
+				abcdefgfedcba
+				xxxxx
+					</code></pre>
+				
+					<h3>Sample Output</h3>
+					<pre><code class="code">
+				abcdefg(max)fedcba
+				x(max)x(max)x(max)x(max)x(max)
+					</code></pre>
+				
+					<h3>问题分析：</h3>
+					<p>这个问题的关键是开始不知道字符串中的哪个字符最大，所以需要先看一遍字符串。知道最大字符之后，对字符串再过一遍即可，该插入字符串“(max)”的地方，插入即可。</p>
+				
+					<h3>C语言代码实现</h3>
+					<pre><code class="code">
+#include &lt;stdio.h&gt;
+#define N 100
+char s[N + 1];
+int main(void)
+{
+	char maxc;
+	int i;
+	while (scanf("%s", s) != EOF) {
+		maxc = '\0';
+		for (i = 0; s[i]; i++)
+			if (s[i] > maxc) maxc = s[i];
+		for (i = 0; s[i]; i++) {
+			printf("%c", s[i]);
+			if (s[i] == maxc) printf("(max)");
+		}
+		printf("\n");
+	}
+	return 0;
+}
+					</code></pre>
+				</div>
+				<br>
+<hr>
+<br>
+				<div id="ex10">
+					<h2>实验10：培训</h2>
+					<p>某培训机构的学员有如下信息：姓名（字符串），年龄（周岁，整数），去年 NOIP 成绩（整数，且保证是5的倍数）。经过为期一年的培训，所有同学的成绩都有所提高，提升了20%（当然NOIP满分是600分，不能超过这个得分）。</p>
+				
+					<h3>输入格式</h3>
+					<p>第一行输入一个正整数n，表示学员个数。第二行开始往下n行。每行首先是一个字符串表示学员姓名，再是一个整数表示学员年龄，再是一个整数为去年NOIP成绩。</p>
+				
+					<h3>输出格式</h3>
+					<p>输出n行，每行首先输出一个字符串表示学生姓名，再往后两个整数，表示经过一年的培训后学员的年龄和他们今年的NOIP成绩。以空格隔开。</p>
+				
+					<h3>输入输出样例</h3>
+					<div class="sample">
+					  <h4>输入</h4>
+					  <pre><code class="code">
+				3
+				kkksc03 24 0
+				chen_zhe 14 400
+				nzhtl1477 18 590
+					  </code></pre>
+					  <h4>输出</h4>
+					  <pre><code class="code">
+				kkksc03 25 0
+				chen_zhe 15 480
+				nzhtl1477 19 600
+					  </code></pre>
+					</div>
+				
+					<h3>题解</h3>
+					<p>设计一个结构体储存学员信息，并设计一个函数模拟培训过程，其参数是这样的结构体类型，返回同样的结构体类型，并输出学员信息。</p>
+				
+					<h3>C语言代码实现</h3>
+					<pre><code class="code">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct xy {
+	char name[1000];
+	int age;
+	int grade;
+};
+
+void count(struct xy stu1) {
+	stu1.age += 1;
+	stu1.grade *= 1.2;
+	if (stu1.grade > 600) stu1.grade = 600;
+	printf("%s %d %d\n", stu1.name, stu1.age, stu1.grade);
+}
+
+int main() {
+	int n;
+	struct xy list[6];
+	scanf("%d", &n);
+	for (int i = 0; i < n; i++) {
+		scanf("%s %d %d", list[i].name, &list[i].age, &list[i].grade);
+		count(list[i]);
+	}
+	return 0;
+}
+					</code></pre>
+				</div>
+				<br>
+<hr>
+<br>
+				<div id="ex11">
+					<h2>实验11：第一次，第二次，成交！</h2>
+					<p>因为奶牛们的节食运动给F余下了一大批干草无法处理，所以他准备要开一个拍卖会去出售他的干草。</p>
+				
+					<h3>题解</h3>
+					<p>为了解决这个问题，我们需要找到所有农夫报价中的第m高的价格，因为F只有m批干草，所以他需要确保前m个出价最高的农夫能够购买到干草。</p>
+				
+					<h4>(1) 不用指针</h4>
+					<pre><code class="code">
+#include &ltstdio.h&gt
+
+void swap(int *a, int *b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void bubbleSort(int arr[], int n) {
+	int i, j;
+	for (i = 0; i < n - 1; i++) {
+		for (j = 0; j < n - i - 1; j++) {
+			if (arr[j] > arr[j + 1]) {
+				swap(&arr[j], &arr[j + 1]);
+			}
+		}
+	}
+}
+
+int main() {
+	int n, m;
+	printf("请输入干草的批数(n)和农夫的数量(m): ");
+	scanf("%d %d", &n, &m);
+	int prices[m];
+	printf("请输入每个农夫的报价:\n");
+	for (int i = 0; i < m; i++) {
+		scanf("%d", &prices[i]);
+	}
+	bubbleSort(prices, m);
+	int minPriceToSell = prices[m - 1];
+	printf("F应该以每批草料至少 %d 的价格出售，以确保赚到最多的钱。\n", minPriceToSell);
+	return 0;
+}
+					</code></pre>
+				
+					<h4>(2) 用指针</h4>
+					<pre><code class="code">
+#include &ltstdio.h&gt  
+void swap(int *a, int *b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void bubbleSort(int *arr, int n) {
+	int i, j;
+	for (i = 0; i < n - 1; i++) {
+		for (j = 0; j < n - i - 1; j++) {
+			if (*(arr + j) > *(arr + j + 1)) {
+				swap(&arr[j], &arr[j + 1]);
+			}
+		}
+	}
+}
+
+int main() {
+	int n, m;
+	printf("请输入干草的批数(n)和农夫的数量(m): ");
+	scanf("%d %d", &n, &m);
+	int prices[m];
+	printf("请输入每个农夫的报价:\n");
+	for (int i = 0; i < m; i++) {
+		scanf("%d", &prices[i]);
+	}
+	bubbleSort(prices, m);
+	int minPriceToSell = prices[m - 1];
+	printf("F应该以每批草料至少 %d 的价格出售，以确保赚到最多的钱。\n", minPriceToSell);
+	return 0;
+}
+					</code></pre>
+				</div>
+				<br>
+<hr>
+<br>
+				<div id="ex12">
+					<h2>实验12：约瑟夫问题</h2>
+					<p>n个人围成一圈，从第一个人开始报数，数到m的人出列，再由下一个人重新从1开始报数，数到m的人再出圈，依次类推，直到所有的人都出圈，请输出依次出圈人的编号。</p>
+				
+					<h3>Input</h3>
+					<p>输入两个整数n,m。</p>
+				
+					<h3>Output</h3>
+					<p>输出一行n个整数，按顺序输出每个出圈人的编号。</p>
+				
+					<h3>题解</h3>
+					<p>我们首先定义了一个链表节点结构体Node，用于表示环中的每个人。然后创建了一个函数createCircle，用于创建一个有n个节点的环形链表。接着定义了josephusProblem函数，用于解决约瑟夫环问题。</p>
+				
+					<pre><code class="code">
+	#include &ltstdio.h&gt
+	#include &ltstdlib.h&gt
+	
+	// 定义一个链表节点结构体
+	typedef struct Node {
+		int number;
+		struct Node *next;
+	} Node;
+	
+	// 创建一个有n个节点的环形链表
+	Node *createCircle(int n) {
+		Node *head = NULL, *prev = NULL, *temp;
+		for (int i = 1; i <= n; i++) {
+			temp = (Node *)malloc(sizeof(Node));
+			temp->number = i;
+			temp->next = NULL;
+			if (i == 1) {
+				head = temp;
+				prev = temp;
+			} else {
+				prev->next = temp;
+				prev = temp;
+			}
+		}
+		prev->next = head; // 使链表成环
+		return head;
+	}
+	// 解决约瑟夫环问题
+	void josephusProblem(int n, int m) {
+		Node *head = createCircle(n);
+		Node *temp = head;
+		Node *prev = NULL;
+		while (temp->next != temp) { // 当链表中不止一个节点时
+			for (int count = 1; count < m; count++) {
+				prev = temp;
+				temp = temp->next;
+			}
+			prev->next = temp->next; // 移除节点temp
+			printf("出圈的人的编号: %d\n", temp->number);
+			free(temp);
+			temp = prev->next; // 继续下一次循环
+		}
+		printf("最后出圈的人的编号: %d\n", temp->number);
+		free(temp); // 释放最后一个节点
+	}
+	int main() {
+		int n, m;
+		printf("请输入人数n和报数m: ");
+		scanf("%d %d", &n, &m);
+		josephusProblem(n, m);
+		return 0;
+	}
+	
+					</code></pre>
+				</div>
+				<br>
+<hr>
+<br>
+	
+				
+				<div id="contact">
+					<h2>联系方式</h2>
+					<p>请将你想告诉我的话发送到我的邮箱</p>
+					<form action="mailto://wzl21011234@gmail.com" method="">
+						<textarea rows="" cols="">
+							
+						</textarea>
+						<button type="submit">提交按钮</button>
+					</form>
+				</div>
+				<div  class="center" >
+					<a href="#" style="text-decoration: none;">返回顶部</a>
+				</div>
+
+
+			</div>
+		</div>
+	</body>
+</html>
