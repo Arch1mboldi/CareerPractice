@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C语言概念解释</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/0.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+		document.addEventListener('DOMContentLoaded', function() {
+		$('.link').click(function(event) {
+			event.preventDefault(); // 阻止链接默认的导航行为
+			var content = $(this).attr('href'); // 获取href属性值
+			$('#container').load(content); // 通过jQuery的load方法异步加载内容
+		});
+		});
+    </script>
+</head>
+<body>
+    <header>
+        <div class="标题">
+          <h1>C 语 言 实 验 指 导</h1>
+          <img src="images/华理校徽1.png" alt="华理校徽" height="80px" />
+          <img src="images/C语言logo.png" alt="C语言" height="80px" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">主界面</a></li>
+            <li><a href="concepts.html">概念解释</a></li>
+            <li><a href="instructions.html">实验指导</a></li>
+        <li><a href="files.html">相关资料</a><li>
+            <li><a href="forum.php">讨论板</a></li>
+          </ul>
+        </nav>
+      </header>
+        
+            <aside>
+
+                <div class="aside_groups">
+                    <section class="aside_group">
+                        <p class="aside_group_title">C语言了解</p>
+                        <a class="link" href="概念/简介.html">
+                            <p class="link_text">C 简介</p>
+                          </a>
+                          
+                          <a class="link" href="概念/环境设置.html">
+                            <p class="link_text">C环境设置</p>
+                          </a>
+                          
+                          <a class="link" href="概念/VScode.html">
+                            <p class="link_text">C VScode</p>
+                          </a>
+                          
+                          <a class="link" href="概念/编程助手.html">
+                            <p class="link_text">C AI 编程助手</p>
+                          </a>
+                    </section>
+                    <section class="aside_group">
+                        <p class="aside_group_title">C语言基础</p>
+                        <a class="link" href="概念/程序结构.html">
+                            <p class="link_text">C程序结构</p>
+                          </a>
+                          
+                          <a class="link" href="概念/基本语法.html">
+                            <p class="link_text">C基本语法</p>
+                          </a>
+                          
+                          <a class="link" href="概念/数据类型.html">
+                            <p class="link_text">C 数据类型</p>
+                          </a>
+                          
+                          <a class="link" href="概念/变量.html">
+                            <p class="link_text">C变量</p>
+                          </a>
+                          
+                          <a class="link" href="概念/常量.html">
+                            <p class="link_text">C常量</p>
+                          </a>
+                          
+                          <a class="link" href="概念/存储类.html">
+                            <p class="link_text">C存储类</p>
+                          </a>
+                          
+                          <a class="link" href="概念/运算符.html">
+                            <p class="link_text">C运算符</p>
+                          </a>
+                          
+                          <a class="link" href="概念/判断.html">
+                            <p class="link_text">C判断</p>
+                          </a>
+                          
+                          <a class="link" href="概念/C循环.html">
+                            <p class="link_text">C循环</p>
+                          </a>
+                          
+                          <a class="link" href="概念/函数.html">
+                            <p class="link_text">C函数</p>
+                          </a>
+                          
+                          <a class="link" href="概念/作用域规则.html">
+                            <p class="link_text">C作用域规则</p>
+                          </a>
+                          
+                          <a class="link" href="概念/数组.html">
+                            <p class="link_text">C数组</p>
+                          </a>
+                          
+                          <a class="link" href="概念/枚举.html">
+                            <p class="link_text">Cenum(枚举)</p>
+                          </a>
+                          
+                          <a class="link" href="概念/C指针.html">
+                            <p class="link_text">C指针</p>
+                          </a>
+                          
+                          <a class="link" href="概念/函数指针.html">
+                            <p class="link_text">C函数指针</p>
+                          </a>
+                          
+                          <a class="link" href="概念/字符串.html">
+                            <p class="link_text">C字符串</p>
+                          </a>
+                          
+                          <a class="link" href="概念/结构体.html">
+                            <p class="link_text">C 结构体</p>
+                          </a>
+                          
+                          <a class="link" href="概念/共用体.html">
+                            <p class="link_text">C共用体</p>
+                          </a>
+                          
+                          <a class="link" href="概念/位域.html">
+                            <p class="link_text">C位域</p>
+                          </a>
+                          
+                          <a class="link" href="概念/typedef.html">
+                            <p class="link_text">Ctypedef</p>
+                          </a>
+                          
+                          <a class="link" href="概念/输入 & 输出.html">
+                            <p class="link_text">C输入 & 输出</p>
+                          </a>
+                          
+                          <a class="link" href="概念/文件读写.html">
+                            <p class="link_text">C文件读写</p>
+                          </a>
+                    </section>
+                    <section class="aside_group">
+                        <p class="aside_group_title">C语言高级</p>
+                        <a class="link" href="概念/预处理器.html">
+                            <p class="link_text">C预处理器</p>
+                          </a>
+                          
+                          <a class="link" href="概念/头文件.html">
+                            <p class="link_text">C头文件</p>
+                          </a>
+                          
+                          <a class="link" href="概念/强制类型转换.html">
+                            <p class="link_text">C强制类型转换</p>
+                          </a>
+                          
+                          <a class="link" href="概念/错误处理.html">
+                            <p class="link_text">C错误处理</p>
+                          </a>
+                          
+                          <a class="link" href="概念/递归.html">
+                            <p class="link_text">C递归</p>
+                          </a>
+                          
+                          <a class="link" href="概念/可变参数.html">
+                            <p class="link_text">C可变参数</p>
+                          </a>
+                          
+                          <a class="link" href="概念/内存管理.html">
+                            <p class="link_text">C内存管理</p>
+                          </a>
+                          
+                          <a class="link" href="概念/未定义行为.html">
+                            <p class="link_text">C未定义行为</p>
+                          </a>
+                          
+                          <a class="link" href="概念/命令行参数.html">
+                            <p class="link_text">C命令行参数</p>
+                          </a>
+                          
+                          <a class="link" href="概念/排序算法.html">
+                            <p class="link_text">C排序算法</p>
+                          </a>
+                    </section>
+                    </div>  
+            </aside>
+    <main>
+        <div id="container">
+            <h1>C 简介</h1>
+        <p>C语言是一种广泛使用的高级编程语言，诞生于20世纪70年代初，由贝尔实验室的Dennis Ritchie设计并开发。C语言因其高效、灵活和便携性而深受欢迎，对许多后来的编程语言，包括C++、C#、Java和Python，都有着深远的影响。</p>
+        <h2>C语言的主要特点：</h2>
+        <ul>
+            <li>简洁高效：C语言的语法简单，易于学习，提供了丰富的运算符和控制流语句，允许编写紧凑高效的代码。</li>
+            <li>高阶语言：C语言支持函数，允许进行模块化编程。</li>
+            <li>低级语言特性：C语言提供了对硬件操作的高度控制，例如直接访问内存地址。</li>
+            <li>可移植性：C语言编写的程序可以在多种计算机平台上运行，只需对源代码进行少量或不进行修改。</li>
+            <li>丰富的库支持：C语言有一个庞大的标准库，提供了大量的函数，用于执行诸如输入/输出、字符串操作、数学计算等常见任务。</li>
+            <li>基础广泛：C语言被广泛用于操作系统、嵌入式系统、系统软件、应用软件以及各种算法和数据结构的实现。</li>
+        </ul>
+        <h2>C语言的应用领域：</h2>
+        <ul>
+            <li>操作系统开发：如Linux内核、Windows的某些部分等。</li>
+            <li>嵌入式系统：如微控制器编程、物联网设备等。</li>
+            <li>系统软件：如编译器、网络服务器、数据库等。</li>
+            <li>游戏和图形编程：许多游戏引擎和图形库都是用C或C++编写的。</li>
+            <li>科学计算和数值分析：C语言的高效性能使其适用于计算密集型任务。</li>
+        </ul>
+        <h2>学习C语言的资源：</h2>
+        <ul>
+            <li>教科书：如《C程序设计语言》（K&R）、《C Primer Plus》等。</li>
+            <li>在线教程和课程：许多在线平台提供了免费的C语言入门到高级课程。</li>
+            <li>开源项目和社区：参与开源项目是提高编程技能的好方法。</li>
+        </ul>
+        <p>C语言因其接近硬件的特性和高性能而仍然是计算机科学教育和软件开发中不可或缺的一部分。对于希望深入了解计算机工作原理和提升编程技能的开发者来说，学习C语言是一个很好的开始。</p>
+        </div>
+        
+
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>
